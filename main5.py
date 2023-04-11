@@ -9,7 +9,6 @@ def home():
 def search():
     import pandas as pd
     genere = request.form.getlist('option1')
-    print((genere))
     dati_film = pd.read_csv('https://raw.githubusercontent.com/wtitze/3E/main/2010.csv', sep=';')
     risultato = dati_film[dati_film['Genres']==genere[0]]
     if len(risultato) == 0:
