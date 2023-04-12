@@ -15,7 +15,7 @@ def es1():
 @app.route('/es1search', methods = ['GET'])
 def search():
     import pandas as pd
-    genere = request.args['genere']
+    genere = request.args['film']
     dati_film = pd.read_csv('https://raw.githubusercontent.com/wtitze/3E/main/2010.csv', sep=';')
     risultato = dati_film[dati_film['Genres']==genere.capitalize()]
     if len(risultato) == 0:
