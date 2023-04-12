@@ -40,6 +40,17 @@ def search2():
         table = risultato.to_html()
     return render_template('table2.html', tabella = table)
 
+#-------------------esercizio 3--------------------
+@app.route('/es3')
+def es3():
+    return render_template('search3.html')
+
+@app.route('/search_tendina', methods = ['GET'])
+def search3():
+    film=request.args["genere"]
+    genere=df[df["Genres"].str.lower().str.contains(film.strip().lower())]
+    dfhtm=genere.to_html()
+    return render_template('risultato.html', tabella = dfhtm)
 
 #-------------------esercizio 4--------------------
 @app.route('/es4')
