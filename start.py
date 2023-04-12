@@ -41,6 +41,18 @@ def search2():
     return render_template('table2.html', tabella = table)
 
 #-------------------esercizio 3--------------------
+@app.route('/tendina')
+def esTenda():
+    return render_template('tendina.html')
+
+
+@app.route('/search_tendina')
+def tendina():
+    generi =list(set(df[~df['Genres'].str.contains('\|')]['Genres']))
+    return render_template('genereTendina.html', list= list(generi))
+
+
+
 @app.route('/es3')
 def es3():
     return render_template('search3.html')
